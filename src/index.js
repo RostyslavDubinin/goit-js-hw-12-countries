@@ -1,4 +1,14 @@
 
+import { alert, defaultModules } from '@pnotify/core';
+import '@pnotify/core/dist/PNotify.css';
+import * as PNotifyMobile from '@pnotify/mobile';
+import '@pnotify/mobile/dist/PNotifyMobile.css';
+
+defaultModules.set(PNotifyMobile, {});
+
+
+
+
 import countryCardTpl from './templates/country-card.hbs';
 import allCountryCardTpl from './templates/allContries.hbs';
 import API from './js/fetchCountries.js';
@@ -54,7 +64,13 @@ function renderAllCountryCardTpl(countries) {
 }
 
 function onFetchError(error) {
-    alert('Too many matches found. Please enter a more specific query!');
+    // alert('Too many matches found. Please enter a more specific query!');
+    alert({
+      text: 'Too many matches found. Please enter a more specific query!'
+      
+    });
   }
+
+  
 
   
