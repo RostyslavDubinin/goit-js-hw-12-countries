@@ -1,10 +1,6 @@
 
-import { alert, defaultModules } from '@pnotify/core';
+import { error, defaultModules } from '@pnotify/core';
 import '@pnotify/core/dist/PNotify.css';
-import * as PNotifyMobile from '@pnotify/mobile';
-import '@pnotify/mobile/dist/PNotifyMobile.css';
-
-defaultModules.set(PNotifyMobile, {});
 
 
 
@@ -63,11 +59,9 @@ function renderAllCountryCardTpl(countries) {
     
 }
 
-function onFetchError(error) {
-    // alert('Too many matches found. Please enter a more specific query!');
-    alert({
+function onFetchError(eror) {
+    error({
       text: 'Too many matches found. Please enter a more specific query!'
-      
     });
   }
 
