@@ -51,6 +51,7 @@ function renderCountryCard(countries) {
     const markup = countryCardTpl(countries);
     refs.cardContainer.innerHTML = markup;
     // console.log(countries);
+    
 }
 
 function renderAllCountryCardTpl(countries) {
