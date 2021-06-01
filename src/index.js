@@ -2,9 +2,7 @@
 import { error, defaultModules } from '@pnotify/core';
 import '@pnotify/core/dist/PNotify.css';
 
-// import debounce from 'lodash.debounce';
-// const debounce = require('lodash.debounce');
-
+const debounce = require('lodash.debounce');
 
 
 import countryCardTpl from './templates/country-card.hbs';
@@ -14,16 +12,16 @@ import getRefs from './js/get-refs.js';
 
 const refs = getRefs();
 
-refs.searchForm.addEventListener('submit', _.debounce(onSearch, 150));
+refs.searchForm.addEventListener('input', debounce(onSearch, 500));
 
 
 
 function onSearch(e) {
   e.preventDefault();
 
-  const form = e.currentTarget;
-  const searchQuery = form.elements.query.value;
-
+  // const form = e.currentTarget;
+  // const searchQuery = form.elements.query.value;
+  const searchQuery = e.target.value;
   
 
 
@@ -38,14 +36,14 @@ if (searchQuery.length > 2){
   API.fetchCountries(searchQuery)
     .then(renderCountryCard)
     .catch(onFetchError)
-    .finally(() => form.reset());
+    // .finally(() => form.reset());
     
 }
 else {
     API.fetchCountries(searchQuery)
     .then(renderAllCountryCardTpl)
     .catch(onFetchError)
-    .finally(() => form.reset());
+    // .finally(() => form.reset());
 }
 }
 
