@@ -2,6 +2,8 @@
 import { error, defaultModules } from '@pnotify/core';
 import '@pnotify/core/dist/PNotify.css';
 
+// import debounce from 'lodash.debounce';
+// const debounce = require('lodash.debounce');
 
 
 
@@ -12,7 +14,7 @@ import getRefs from './js/get-refs.js';
 
 const refs = getRefs();
 
-refs.searchForm.addEventListener('submit', onSearch);
+refs.searchForm.addEventListener('submit', _.debounce(onSearch, 150));
 
 
 
